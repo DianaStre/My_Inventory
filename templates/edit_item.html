@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item</title>
+</head>
+<body>
+    <h1>Edit Item</h1>
+    <form method="POST">
+        <label>Type:</label>
+        <select name="type">
+            <option value="Ok" {% if item.type == 'Ok' %}selected{% endif %}>Ok</option>
+            <option value="Damaged" {% if item.type == 'Damaged' %}selected{% endif %}>Damaged</option>
+            <option value="Sent for maintenance" {% if item.type == 'Sent for maintenance' %}selected{% endif %}>Sent for maintenance</option>
+        </select><br>
+
+        <label>Status:</label>
+        <select name="status">
+            <option value="Free" {% if item.status == 'Free' %}selected{% endif %}>Free</option>
+            <option value="In use" {% if item.status == 'In use' %}selected{% endif %}>In use</option>
+        </select><br>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

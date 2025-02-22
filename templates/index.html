@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+</head>
+<body>
+    <h1>Inventory List</h1>
+    <table border="1">
+        <tr>
+            <th>Inventory Item No.</th>
+            <th>Inventory Item Name</th>
+            <th>Inventory Type</th>
+            <th>Inventory Status</th>
+            <th>Action</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.item_name }}</td>
+            <td>{{ item.type }}</td>
+            <td>{{ item.status }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('book_item', item_id=item.id) }}">
+                    <button type="submit">Book</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
