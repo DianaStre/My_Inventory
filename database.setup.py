@@ -25,15 +25,16 @@ def import_data_from_excel():
     with app.app_context():
         for _, row in df.iterrows(): #This loops through each row
             item = InventoryItem(
-                id=int(row['Inventoty item no.']),  # Fixing typo of format issues
+                id=int(row['Inventoty item no.']),  # Fixing typo or format issues
                 item_name=row['inventory item name'],
-                type=row['inventory type'],
-                status=row['inventory status']
+                type=row['inventory type'], #This reads the item's type
+                status=row['inventory status'] #This reads the item's status
             )
-            db.session.add(item)
-        db.session.commit()
-        print("Data imported successfully!")
+            db.session.add(item) #This adds items to the database
+        db.session.commit() #This saves the newly added data
+        print("Data imported successfully!") #This confirms a successful import
 
-if __name__ == "__main__":
-    create_database()
-    import_data_from_excel()
+#This section runs the script
+if __name__ == "__main__": #This ensures the script only runs when executed directly
+    create_database() #This creates the SQLite database
+    import_data_from_excel() #This imports the data from the Excel file

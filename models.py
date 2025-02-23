@@ -1,5 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 
+"""SQLAlchemy is a Python library that allows us to work with a database using Python 
+classes instead of raw SQL queries."""
 db = SQLAlchemy()
 
 class InventoryItem(db.Model):
